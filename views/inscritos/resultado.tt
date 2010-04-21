@@ -1,0 +1,38 @@
+<h1>Sede [% vars.sede %] [% vars.otro %]</h1>
+<h2> Resultados de la b&uacute;squeda </h2>
+[% IF inscrito %]
+<h3>[% inscrito.nombres %] [% inscrito.apellidos %]</h3>
+<p><strong>Fecha de nacimiento:</strong> [% inscrito.fecha_nac %]</p>
+<p><strong>Correo:</strong> [% inscrito.email %]</p>
+<p><strong>Twitter:</strong> [% inscrito.twitter %]</p>
+<p><strong>URL:</strong> [% inscrito.url %]</p>
+<p><strong>Ciudad de procedencia:</strong> [% inscrito.ciudad %]</p>
+<p><strong>Comentarios:</strong> [% inscrito.comentarios %]</p>
+<p><strong>Us&oacute; Linux Antes: </strong> [% IF inscrito.uso_linux_antes == '1' %] Si [% ELSE %] No [% END %] </p>
+<p><strong>Como se entero del evento: </strong> [% inscrito.ccsef %] </p>
+<p><strong>Tipo de Computador: </strong> [% inscrito.tipo_comp %] </p>
+<p><strong>Tipo de Procesador: </strong> [% inscrito.tipo_proc %] </p>
+<p><strong>Cantidad de RAM: </strong> [% inscrito.cant_ram %] </p>
+<p><strong>Espacion e Disco: </strong> [% inscrito.esp_dd %] </p>
+[% IF inscrito.asistio == '1' %]
+<p> <strong>Confirm&oacute; Asistencia</strong> </p>
+<p>[% IF inscrito.trajopc == 1 %] <strong>Trajo equipo para instalar</strong> [% END %]</p>
+
+[% ELSE %]
+<form action="/inscritos/actualizar" method="post">
+    <p><strong>Confirmar Asistencia </strong> <input type="checkbox" value="1" name="asistio"/></p>
+    <p><strong>Trajo equipo para instalar</strong> <input type="checkbox" value="1" name="trajopc"/></p>
+    <input type="hidden" value="[% inscrito.id %]" name="id"/>
+    <p><input type="submit" value="Actualizar Registro" /></p>
+</form>
+[% END %]
+
+[% ELSE %]
+<p> No se encontr&oacute; el registro para la busqueda que coincida con: [% email %]</p>
+<p><a href="/inscritos/agregar/[% email %]">Agregar registro con esta direcci&oacute;n de correo</a></p>
+[% END %]
+[% IF vars.username != "anonimo" %]
+<p> <a href="/admin/">Volver</a> </p>
+[% ELSE %]
+<p> <a href="/inscritos/">Volver</a> </p>
+[% END %]

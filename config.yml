@@ -1,0 +1,14 @@
+layout: "main"
+logger: "file"
+sede: "Nombre de la Sede"
+evento: "Flisol 2010"
+template: template_toolkit
+engines:
+    template_toolkit:
+        start_tag: '[%'
+        stop_tag: '%]'
+        encoding: 'utf-8'
+#session: "memcached"
+#memcached_servers: "127.0.0.1:11211"
+session: "YAML"
+session_dir: "/tmp/r3s2lite/"

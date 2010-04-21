@@ -1,0 +1,133 @@
+<h2>Sede [% vars.sede %] [% vars.otro %]</h2>
+
+
+<h2> Agregar Participante </h2>
+
+<form method="post" action="/inscritos/agregar" id="agregaIns"class="cmxform" >
+    <fieldset> 
+		<legend> Rellene los siguientes datos: </legend> 
+
+        <p> 
+            <label for="nombres">Nombres</label> 
+            <input id="nombres" name="nombres" type="text" title="Indique su nombre"/> 
+        </p>
+        <p> 
+            <label for="apellidos">Apellidos</label> 
+            <input id="apellidos" name="apellidos" type="text" title="Indique sus apellidos" /> 
+        </p> 
+        <p> 
+            <label for="fecha_nac" >Fecha de Nacimiento</label> 
+            <input type="text" id="datepicker" name="fecha_nac"/> 
+        </p> 
+        <p> 
+            <label>Ciudad de Procedencia</label> 
+            <input name="ciudad" type="text" title="Indica la ciudad desde donde nos visitas" /> 
+        </p> 
+        <p> 
+            <label for="email">Correo Electrónico</label> 
+            <input name ="email" id="email" type="text" title="Indique su Correo" value="[% email %]"/> 
+        </p> 
+        <p> 
+            <label for="twitter">Twitter</label> 
+            <input id="twitter" name="twitter" type="text" value="@" title="Indique su cuenta en Twitter (si posee)" /> 
+        </p> 
+        <p> 
+            <label for="url">URL</label> 
+            <input id="url" name="url" type="text" value="http://" title="Indique su sitio web (si posee)" /> 
+        </p> 
+        <p> 
+            <label for="tipo_comp">Tipo de Computador</label> 
+            <select id="tipo_comp" name="tipo_comp" title="Indique el tipo de computador"> 
+                <option value=" ">--</option> 
+                <option value="Escritorio">Escritorio</option> 
+                <option value="Portatil">Portatil</option> 
+                <option value="NetBook">NetBook</option>
+            </select>
+        </p> 
+        <p> 
+            <label for="tipo_proc">Tipo de Procesador</label> 
+            <select id="tipo_proc" name="tipo_proc" title="Indique el tipo de procesador"> 
+                <option value=" ">--</option> 
+                <option value="Pentium I">Pentium I</option> 
+                <option value="Pentium II">Pentium II</option> 
+                <option value="Pentium III">Pentium III</option> 
+                <option value="Pentium IV">Pentium IV</option> 
+                <option value="Celeron">Celeron</option> 
+                <option value="AMD">AMD</option> 
+                <option value="No lo se">No lo se</option> 
+            </select> 
+        </p> 
+        <p> 
+            <label for="cant_ram">Cantidad de RAM</label> 
+            <input id="cant_ram" name="cant_ram" type="text" title="Indique la cantidad de RAM de su equipo" /> 
+        </p> 
+        <p> 
+            <label for="esp_dd" >Espacio disponible en Disco</label> 
+            <input id="esp_dd"  name="esp_dd" type="text" title="Indique la cantidad de espacio disponible en su disco" /> 
+        </p> 
+        <p> 
+            <label for="distro">Distribución a Instalar</label> 
+            <select id="distro" name="distro" title="Indique la distribucion que quiere instalar"> 
+                <option value="">---</option>
+            [% FOREACH distro IN distros %]
+                <option value="[% distro.id %]">[% distro.nombre %]</option> 
+            [% END %]
+                <option value="">No lo se</option> 
+            </select> 
+        </p> 
+        <p> 
+            <label for="uso_linux_antes">Ha usado Linux anteriormente</label> 
+            <select id="uso_linux_antes" name="uso_linux_antes" title="Ha usado Linux anteriormente"> 
+                <option value=" ">--</option> 
+                <option value="0">No</option> 
+                <option value="1">Si</option> 
+            </select> 
+        </p> 
+        <p> 
+            <label for="ccsef">Como se entero del Flisol</label> 
+            <select id="ccsef" name="ccsef" title="Indique como supo del evento"> 
+                <option value=" ">--</option> 
+                <option value="Amigo">Amigo</option> 
+                <option value="Web">Web</option> 
+                <option value="Radio">Radio</option> 
+                <option value="TV">TV</option> 
+                <option value="Otro">Otro</option> 
+            </select> 
+        </p> 
+        <p> 
+            <label name="comentarios">Algun Comentario</label> 
+            <textarea id="comentarios" name="comentarios" cols="40" rows="6" title="Algun comentario"></textarea> 
+        </p> 
+        
+        <p> 
+            <input name="submit" type="submit" value="Registrar" class="submit" /> 
+        </p>
+    </fieldset>
+</form>
+<p> <a href="/inscritos/">Volver</a> </p>
+
+<script type="text/javascript">
+// <![CDATA[
+ 
+$().ready(function() {	
+	// validate form on keyup and submit
+	$("#agregaIns").validate({
+		rules: {
+			nombres: "required",
+			apellidos: "required",
+            fecha_nac: "required",
+            email: {
+				required: true,
+				email: true
+			}
+		},
+		messages: {
+			nombres: "Por favor indique el nombre",
+			apellidos: "Por favor indique los apellidos",
+			email: "Por favor ingrese un correo valido",
+			fecha_nac: "Por favor indica la fecha de nacimiento"
+		}
+	});
+});
+// ]]>
+</script>

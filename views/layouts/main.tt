@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+<head>
+<title>R3S2 - Sede: [% vars.sede %]</title>
+<link rel="stylesheet" type="text/css" href="/css/style.css" />
+<link rel="stylesheet" type="text/css" href="/css/cmxform.css" />
+<link rel="stylesheet" type="text/css" href="/css/cmxformTemplate.css" />
+<script type="text/javascript" src="/js/jquery.min.js "></script> 
+<script type="text/javascript" src="/js/jquery.tablesorter.min.js "></script> 
+<script type="text/javascript" src="/js/jquery.tablesorter.pager.js "></script>
+<script type="text/javascript" src="/js/jquery-ui.min.js "></script>
+<script type="text/javascript" src="/js/jquery.ui.datepicker-es.js "></script>
+<script type="text/javascript" src="/js/jquery.validate.js "></script>
+<link type="text/css" href="/css/jquery-ui.custom.css" rel="stylesheet" /> 
+	<script type="text/javascript"> 
+	$(function() {
+		$('#datepicker').datepicker({
+			changeMonth: true,
+			changeYear: true,
+                        yearRange: '1936:2010',
+                        defaultDate: '-10y'
+		}
+                );
+	});
+	</script> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+<div id="header">
+    <h1>[% vars.evento %] - [% vars.sede %] </h1>
+</div>
+<div id="content">
+    <div id="main">
+        [% content %]
+    </div>
+    <div id="second">
+        <div id="vertmenu">
+            <ul>
+        [% IF vars.username != "anonimo" %]
+                <li><a href="/">Inicio</a></li>
+                <li><a href="/admin/">Admin</a></li>
+                <li><a href="/admin/inscritos/asistentes">Inscritos presentes</a></li>
+                <li><a href="/logout">Cerrar Sesi&oacute;n</a></li>
+        [% END %]
+            </ul>
+        </div>
+    </div>
+</div>
+<div id="footer">
+Powered by <a href="http://dancer.sukria.net">Dancer</a> 
+</div>
+</body>
+</html>

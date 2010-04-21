@@ -1,0 +1,29 @@
+<h2>Sede [% vars.sede %] [% vars.otro %]</h2>
+<h2> Buscar Inscrito </h2>
+<form action="/inscritos/buscar" method="post" id="buscaIns">
+<p>
+Indique el correo: <input type"text" name="email" id="email" />
+<input type="submit" value="Buscar" />
+</p>
+</form>
+<p><a href="/inscritos/agregar">Agregar Registro</a></p>
+
+<script type="text/javascript">
+// <![CDATA[
+ 
+$().ready(function() {	
+	// validate form on keyup and submit
+	$("#buscaIns").validate({
+	    rules: {
+                email: {
+				required: true,
+				email: true
+			}
+		},
+		messages: {
+			email: "Por favor ingrese un correo v&aacute;lido"
+		}
+	});
+});
+// ]]>
+</script>

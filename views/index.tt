@@ -1,0 +1,5 @@
+<h2>Sede [% vars.sede %] [% vars.evento %]</h2>
+
+<p>
+I'm in <code>/Users/csanchez/Dropbox/Trabajo/r3s2lite/views/index.tt</code>
+</p>

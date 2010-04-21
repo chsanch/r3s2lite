@@ -1,0 +1,15 @@
+<h1>Sede [% vars.sede %] [% vars.otro %]</h1>
+<h2>Registro Actualizado </h2>
+
+<h3>[% inscrito.nombres %] [% inscrito.apellidos %]</h3>
+<p><strong>Correo:</strong> [% inscrito.email %]</p>
+<p><strong>Twitter:</strong> [% inscrito.twitter %]</p>
+<p><strong>URL:</strong> [% inscrito.url %]</p>
+<p><strong>Ciudad de procedencia:</strong> [% inscrito.ciudad %]</p>
+<p><strong>Comentarios:</strong> [% inscrito.comentarios %]</p>
+<p>[% IF inscrito.asistio == '1' %] <strong>Confirm&oacute; Asistencia</strong> [% END %]</p>
+<p>[% IF inscrito.trajopc == '1' %] <strong>Trajo equipo para instalar</strong> [% END %]</p>[% IF vars.username != "anonimo" %]
+<p> <a href="/admin/">Volver</a> </p>
+[% ELSE %]
+<p> <a href="/inscritos/">Volver</a> </p>
+[% END %]

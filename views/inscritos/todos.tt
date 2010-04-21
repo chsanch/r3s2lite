@@ -1,0 +1,65 @@
+<h2>Sede [% vars.sede %] - Inscritos </h2>
+
+
+[% IF inscritos > 1 %]
+
+<table id="tabIns" class="tablesorter">
+    <thead>
+        <tr>
+            <th>Nombres</th>
+            <th>Apellidos</th>
+            <th>Email</th>
+            <th>Twitter.</th>
+            <th>Distro a Inst.</th>
+            <th>Accion</th>
+        </tr>
+    </thead>
+    <tbody>
+    [% FOREACH inscrito IN inscritos %]
+       <tr>
+            <td> [% inscrito.nombres %]</td>
+            <td> [% inscrito.apellidos %] </td>
+            <td> [% inscrito.email %] </td>
+            <td> [% inscrito.twitter %] </td>
+            <td> [% inscrito.distro.nombre %] </td>
+            <td> <a href="/admin/inscritos/ver/[% inscrito.id %]">Detalle</a></td>
+       </tr>
+    [% END %]
+    </tbody>
+</table>
+<div id="pager" class="pager">
+        <form>
+                <img src="/images/table/first.png" class="first"/>
+                <img src="/images/table/prev.png" class="prev"/>
+                <input type="text" class="pagedisplay"/>
+                <img src="/images/table/next.png" class="next"/>
+                <img src="/images/table/last.png" class="last"/>
+                <select class="pagesize">
+                        <option value="10">10</option>
+                        <option selected="selected" value="20">20</option>
+                        <option value="30">30</option>
+                        <option  value="40">40</option>
+                </select>
+        </form>
+</div>
+
+<script type="text/javascript">
+// <![CDATA[
+$(document).ready(function() 
+    { 
+        $("#tabIns")
+        .tablesorter(
+            {widthFixed: true,widgets: ['zebra']}
+        )
+        .tablesorterPager({ container: $("#pager"), size: 20 }); 
+    } 
+);
+// ]]>
+</script>
+
+
+[% ELSE %]
+<p> No hay inscritos registrados</p>
+[% END %]
+<br/>
+
