@@ -2,7 +2,7 @@ r3s2lite - Light version of R3S2
 
 This version is for offline use. It takes a light version of the db schema and allow to manipulate the data for each venue in any event. This was developed in first instance to support the registration proccess for the FLISOL (www.flisol.org.ve)
 
-It uses Dancer and Sqlite.
+It uses Dancer (see http://perldancer.org/ for more information) and Sqlite.
 
 To install you need the following:
 
@@ -29,10 +29,6 @@ The dbstruct.sql file provides the DB schema used for this application and some 
 
 You can modify the config parameters in "config.yml", the important parameters are: "sede" and "evento".
 
-The basic functionality of this app is to get information about the people attending to the venue, it makes searchs for "email" (for now, we will change for something more accurate) and display the info registered by the user in the online registration system (R3S2) and allow to check the assistance of this person. Simple.
-
-It also provides an administration panel, that displays a list of registered user. To go there just type in the browser: http://localhost:3000/admin and it will show a login form. This information came from the online registration system. The authentication is simple, the record in the DB stores an encrypted password and we can handle it with DBIx::Class::EncodedColumn easily.
-
 On Debian based distros you can install the dependences executing: 
 
 	aptitude install sqlite3 libdbd-sqlite3-perl libdbix-class-perl libdatetime-format-sqlite-perl libdbix-class-encodedcolumn-perl
@@ -45,7 +41,19 @@ If you want to use the Memcached based authentication, you need to install:
 
 and get from the website above the package: libdancer-session-memcached-perl
 
+To start the app just type: 
+
+	perl r3s2lite.pl
+
+and point your browser to: http://localhost:3000 
+
 By default, the app looks for the DB in the main folder that contains all these files, and the file name for the DB is r3s2litedb.rdb
+
+The basic functionality of this app is to get information about the people attending to the venue, it makes searchs for "email" (for now, we will change for something more accurate) and display the info registered by the user in the online registration system (R3S2) and allow to check the assistance of this person. Simple.
+
+It also provides an administration panel, that displays a list of registered user. To go there just type in the browser: http://localhost:3000/admin and it will show a login form. This information came from the online registration system. The authentication is simple, the record in the DB stores an encrypted password and we can handle it with DBIx::Class::EncodedColumn easily.
+
+
 
 Please, if you can help to improve this app, please email me, I will appreciate this. 
 
