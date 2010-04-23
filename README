@@ -33,13 +33,15 @@ On Debian based distros you can install the dependences executing:
 
 	aptitude install sqlite3 libdbd-sqlite3-perl libdbix-class-perl libdatetime-format-sqlite-perl libdbix-class-encodedcolumn-perl
 
-then you can fetch the Dancer related packages from my website (by now there is no official Debian packages) http://g013m.com.ve/debian/, you need to download and install: libdancer-perl, libhttp-server-simple-perl and libhttp-server-simple-psgi-perl.
+then you can fetch the Dancer related packages from my website (by now there is no official Debian packages) http://g013m.com.ve/debian/dancer, you _ONLY_ need to download and install this 3 packages: libdancer-perl, libhttp-server-simple-perl and libhttp-server-simple-psgi-perl.
 
+=== OPTIONAL ===
 If you want to use the Memcached based authentication, you need to install:
 	
 	aptitude install memcached libcache-memcached-perl
 
 and get from the website above the package: libdancer-session-memcached-perl
+=================
 
 To start the app just type: 
 
