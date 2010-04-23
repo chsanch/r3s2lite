@@ -25,13 +25,11 @@ For Sessions you have two alternatives:
 
 The recommended Session storage is memcached.
 
-The dbstruct.sql file provides the DB schema used for this application and some example data. The default user is: usuario and the password is: password.
-
 You can modify the config parameters in "config.yml", the important parameters are: "sede" and "evento".
 
 On Debian based distros you can install the dependences executing: 
 
-	aptitude install sqlite3 libdbd-sqlite3-perl libdbix-class-perl libdatetime-format-sqlite-perl libdbix-class-encodedcolumn-perl
+	aptitude install sqlite3 libdbd-sqlite3-perl libdbix-class-perl libdatetime-format-sqlite-perl libdbix-class-encodedcolumn-perl libhttp-body-perl libmime-types-perl
 
 then you can fetch the Dancer related packages from my website (by now there is no official Debian packages) http://g013m.com.ve/debian/dancer, you _ONLY_ need to download and install this 3 packages: libdancer-perl, libhttp-server-simple-perl and libhttp-server-simple-psgi-perl.
 
@@ -43,13 +41,20 @@ If you want to use the Memcached based authentication, you need to install:
 and get from the website above the package: libdancer-session-memcached-perl
 =================
 
+By default, the app looks for the DB in the main folder that contains all these files, and the file name for the DB is r3s2litedb.rdb
+To create this DB you can do with this command:
+
+	sqlite3 r3s2litedb.rdb < dbstruct.sql
+
+The dbstruct.sql file provides the DB schema used for this application and some example data. The default user is: usuario and the password is: password.
+
 To start the app just type: 
 
 	perl r3s2lite.pl
 
 and point your browser to: http://localhost:3000 
 
-By default, the app looks for the DB in the main folder that contains all these files, and the file name for the DB is r3s2litedb.rdb
+
 
 The basic functionality of this app is to get information about the people attending to the venue, it makes searchs for "email" (for now, we will change for something more accurate) and display the info registered by the user in the online registration system (R3S2) and allow to check the assistance of this person. Simple.
 
