@@ -29,7 +29,7 @@ You can modify the config parameters in "config.yml", the important parameters a
 
 On Debian based distros you can install the dependences executing: 
 
-	aptitude install sqlite3 libdbd-sqlite3-perl libdbix-class-perl libdatetime-format-sqlite-perl libdbix-class-encodedcolumn-perl libhttp-body-perl libmime-types-perl
+	aptitude install sqlite3 libdbd-sqlite3-perl libdbix-class-perl libdatetime-format-sqlite-perl libdbix-class-encodedcolumn-perl libdbix-class-timestamp-perl libhttp-body-perl libmime-types-perl
 
 then you can fetch the Dancer related packages from my website (by now there is no official Debian packages) http://g013m.com.ve/debian/dancer, you _ONLY_ need to download and install this 3 packages: libdancer-perl, libhttp-server-simple-perl and libhttp-server-simple-psgi-perl.
 
